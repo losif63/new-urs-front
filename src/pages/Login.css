@@ -1,0 +1,66 @@
+@font-face {
+  font-family: "ROKAFSansMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSansMedium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.loginPage {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  background-color: #601986;
+}
+
+.ursTitle {
+  height: 50%;
+
+  color: white;
+  font-size: 80px;
+
+  /* 수직 정렬 */
+  display: flex;
+  align-items: center;
+
+  /* 수평 정렬 */
+  justify-content: center;
+
+  font-family: "ROKAFSansMedium";
+  background-color: #601986;
+}
+
+.input {
+  margin: 5px 30%;
+  height: 5%;
+  border-radius: 10px;
+  border-color: white;
+
+  font-family: "ROKAFSansMedium";
+  font-size: 18px;
+  color: black;
+  background-color: white;
+}
+
+.button {
+  margin: 20px 40%;
+  height: 7.5%;
+
+  /* 수직 정렬 */
+  display: flex;
+  align-items: center;
+
+  /* 수평 정렬 */
+  justify-content: center;
+
+  border-radius: 10px;
+  border-color: white;
+
+  font-family: "ROKAFSansMedium";
+  font-size: 25px;
+  color: #601986;
+  background-color: white;
+}
