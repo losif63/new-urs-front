@@ -1,21 +1,51 @@
+@font-face {
+  font-family: "ROKAFSansMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSansMedium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .navBar {
+  margin: 0px 20%;
   display: flex;
   list-style: none;
 
-  background-color: black;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 0px;
+
+  background-color: white;
 }
 
 .navBarMenu {
-  margin: 5px;
+  margin: 8px;
   padding: 0px 10px;
 
-  background-color: red;
+  width: 30%;
+
+  /* 수직 정렬 */
+  display: flex;
+  align-items: center;
+
+  /* 수평 정렬 */
+  justify-content: center;
+  text-align: center;
+
+  border-radius: 10px;
+
+  background-color: white;
 }
 
 .navBarMenu:hover {
-  background-color: seagreen;
+  background-color: lightgray;
+}
+
+.myReservaton {
+  width: 100%;
+  height: 100%;
 }
 
 .navTitle {
-  color: white;
+  font-family: "ROKAFSansMedium";
+  color: #601986;
 }

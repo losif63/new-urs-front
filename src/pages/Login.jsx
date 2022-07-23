@@ -33,6 +33,7 @@ export default function Login() {
       if (response.status === 200) {
         dispatch(loginSlice.actions.writeEmail(email));
         dispatch(loginSlice.actions.writePassword(password));
+
         setLoginSucc(true);
         dispatch(loginSlice.actions.setLoginSucc(loginSucc));
 

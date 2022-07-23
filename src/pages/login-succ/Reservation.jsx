@@ -1,7 +1,6 @@
 import React from "react";
+import "./Reservation.css";
 
-function Login() {
-  return <p>Reservation</p>;
+export default function Reservation() {
+  return <div className="container">Resevation</div>;
 }
-
-export default Login;
