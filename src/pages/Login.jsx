@@ -7,10 +7,9 @@ import loginSlice from "../loginSlice";
 
 import "./Login.css";
 
-export default function Login() {
+export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loginSucc, setLoginSucc] = useState(false);
   const dispatch = useDispatch();
 
   const loginHandler = async () => {
@@ -34,9 +33,7 @@ export default function Login() {
         dispatch(loginSlice.actions.writeEmail(email));
         dispatch(loginSlice.actions.writePassword(password));
 
-        setLoginSucc(true);
-        dispatch(loginSlice.actions.setLoginSucc(loginSucc));
-
+        props.setLoginSucc(true);
         return window.alert("Login Succ");
       }
     } catch (e) {

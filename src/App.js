@@ -7,27 +7,17 @@ import Reservation from "./pages/login-succ/Reservation";
 import { useSelector } from "react-redux";
 
 import "./App.css";
+import { useState, useEffect } from "react";
 
 export default function App() {
-  const loginSucc = useSelector((state) => {
-    return state.login.loginSucc;
-  });
+  const [loginSucc, setLoginSucc] = useState(false);
 
+  useState(()=>{
+    return;
+  }, [loginSucc]);
+  
   return (
     <BrowserRouter>
-      <Routes>
-        {loginSucc ? (
-          <>
-            <Route path="reservation" element={<Reservation />} />
-            <Route path="myReservation" element={<MyReservation />} />
-          </>
-        ) : (
-          <>
-            <Route path="/" element={<Login />} />
-            <Route path="signup" element={<SignUp />} />
-          </>
-        )}
-      </Routes>
       {loginSucc ? (
         <nav className="navBar">
           <li className="navBarMenu">
@@ -47,6 +37,19 @@ export default function App() {
       ) : (
         <></>
       )}
+      <Routes>
+        {loginSucc ? (
+          <>
+            <Route path="reservation" element={<Reservation />} />
+            <Route path="myReservation" element={<MyReservation />} />
+          </>
+        ) : (
+          <>
+            <Route path="/" element={<Login setLoginSucc={setLoginSucc}/>} />
+            <Route path="signup" element={<SignUp />} />
+          </>
+        )}
+      </Routes>
     </BrowserRouter>
   );
 }
