@@ -1,18 +1,22 @@
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 
+import { Provider } from "react-redux";
+import store from "./store";
+
 import "./App.css";
 
-function App() {
+export default function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="signup" element={<SignUp />} />
-      </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="signup" element={<SignUp />} />
+          <Route path="myReservation" element={<SignUp />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
   );
 }
-
-export default App;
