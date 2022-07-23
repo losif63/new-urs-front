@@ -8,15 +8,15 @@ import signUpSlice from "./../signUpSlice";
 import "./SignUp.css";
 
 export default function SignUp() {
-  const [id, setId] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
 
   const SignUpHandler = async () => {
-    console.log("id", id);
+    console.log("email", email);
     console.log("password", password);
 
-    if (id === "" || password === "") {
+    if (email === "" || password === "") {
       return window.alert("아이디와 비밀번호를 모두 입력해주세요");
     }
 
@@ -24,13 +24,13 @@ export default function SignUp() {
       const { data } = await axios.post(
         `${process.env.REACT_APP_SERVER_URL}/signup`,
         {
-          id: id,
+          email: email,
           password: password,
         }
       );
 
       if (data.isOK) {
-        dispatch(signUpSlice.actions.writeId(id));
+        dispatch(signUpSlice.actions.writeEmail(email));
         dispatch(signUpSlice.actions.writePassword(password));
         return window.alert("회원가입이 성공적으로 완료되었습니다");
       } else {
@@ -47,9 +47,9 @@ export default function SignUp() {
       <input
         className="input"
         type="text"
-        placeholder="사용하실 아이디를 입력해주세요"
-        value={id}
-        onChange={(e) => setId(e.target.value)}
+        placeholder="사용하실 이메일을 입력해주세요"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
       />
       <input
         className="input"
