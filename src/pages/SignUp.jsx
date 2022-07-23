@@ -16,9 +16,6 @@ export default function SignUp() {
     console.log("id", id);
     console.log("password", password);
 
-    dispatch(signUpSlice.actions.writeId(id));
-    dispatch(signUpSlice.actions.writePassword(password));
-
     if (id === "" || password === "") {
       return window.alert("아이디와 비밀번호를 모두 입력해주세요");
     }
@@ -33,6 +30,8 @@ export default function SignUp() {
       );
 
       if (data.isOK) {
+        dispatch(signUpSlice.actions.writeId(id));
+        dispatch(signUpSlice.actions.writePassword(password));
         return window.alert("회원가입이 성공적으로 완료되었습니다");
       } else {
         return window.alert("이미 존재하는 회원 정보입니다");
