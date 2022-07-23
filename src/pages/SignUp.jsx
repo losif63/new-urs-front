@@ -17,27 +17,29 @@ export default function SignUp() {
     console.log("password", password);
 
     if (email === "" || password === "") {
-      return window.alert("아이디와 비밀번호를 모두 입력해주세요");
+      return window.alert("이메일과 비밀번호를 모두 입력해주세요");
     }
 
     try {
-      const { data } = await axios.post(
-        `${process.env.REACT_APP_SERVER_URL}/signup`,
+      const response = await axios.post(
+        `${process.env.REACT_APP_SERVER_URL}/user/createuser`,
         {
           email: email,
           password: password,
         }
       );
 
-      if (data.isOK) {
+      if (response.status === 201) {
         dispatch(signUpSlice.actions.writeEmail(email));
         dispatch(signUpSlice.actions.writePassword(password));
         return window.alert("회원가입이 성공적으로 완료되었습니다");
-      } else {
-        return window.alert("이미 존재하는 회원 정보입니다");
-      }
+      } 
     } catch (e) {
-      return window.alert(`Error: ${e}`);
+      if(e.response.status === 409) {
+        return window.alert("이미 존재하는 이메일입니다");
+      } else {
+        return window.alert(`Error: ${e}`);
+      }
     }
   };
 

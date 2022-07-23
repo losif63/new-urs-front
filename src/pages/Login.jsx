@@ -17,28 +17,30 @@ export default function Login() {
     console.log("password", password);
 
     if (email === "" || password === "") {
-      return window.alert("아이디와 비밀번호를 모두 입력해주세요");
+      return window.alert("이메일과 비밀번호를 모두 입력해주세요");
     }
 
     try {
-      const { data } = await axios.post(
-        `${process.env.REACT_APP_SERVER_URL}/login`,
+      const response = await axios.post(
+        `${process.env.REACT_APP_SERVER_URL}/auth/login`,
         {
           email: email,
           password: password,
         }
       );
 
-      if (data.isOK) {
+      if (response.status === 200) {
         dispatch(loginSlice.actions.writeEmail(email));
         dispatch(loginSlice.actions.writePassword(password));
-
-        return <Link to="myReservation"></Link>;
-      } else {
-        return window.alert("로그인 정보가 맞지 않습니다");
-      }
+        return window.alert("Login Succ");
+        // return <Link to="myReservation"></Link>;
+      } 
     } catch (e) {
-      return window.alert(`Error: ${e}`);
+      if(e.response.status === 404) {
+        return window.alert("로그인 정보가 맞지 않습니다");
+      } else {
+        return window.alert(`Error: ${e}`);
+      }
     }
   };
 
