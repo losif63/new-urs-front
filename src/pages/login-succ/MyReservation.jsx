@@ -1,7 +1,5 @@
 import React from "react";
 
-function Login() {
+export default function MyReservation() {
   return <p>MyReservation</p>;
 }
-
-export default Login;

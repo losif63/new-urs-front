@@ -1,22 +1,31 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
+import MyReservation from "./pages/login-succ/MyReservation";
 
-import { Provider } from "react-redux";
-import store from "./store";
+import { useSelector } from "react-redux";
 
 import "./App.css";
 
 export default function App() {
+  const loginSucc = useSelector((state) => {
+    return state.login.loginSucc;
+  });
+
   return (
-    <Provider store={store}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="signup" element={<SignUp />} />
-          <Route path="myReservation" element={<SignUp />} />
-        </Routes>
-      </BrowserRouter>
-    </Provider>
+    <BrowserRouter>
+      <Routes>
+        {loginSucc ? (
+          <>
+            <Route path="myReservation" element={<MyReservation />} />
+          </>
+        ) : (
+          <>
+            <Route path="/" element={<Login />} />
+            <Route path="signup" element={<SignUp />} />
+          </>
+        )}
+      </Routes>
+    </BrowserRouter>
   );
 }

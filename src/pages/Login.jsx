@@ -10,6 +10,7 @@ import "./Login.css";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loginSucc, setLoginSucc] = useState(false);
   const dispatch = useDispatch();
 
   const loginHandler = async () => {
@@ -32,11 +33,13 @@ export default function Login() {
       if (response.status === 200) {
         dispatch(loginSlice.actions.writeEmail(email));
         dispatch(loginSlice.actions.writePassword(password));
+        setLoginSucc(true);
+        dispatch(loginSlice.actions.setLoginSucc(loginSucc));
+
         return window.alert("Login Succ");
-        // return <Link to="myReservation"></Link>;
-      } 
+      }
     } catch (e) {
-      if(e.response.status === 404) {
+      if (e.response.status === 404) {
         return window.alert("로그인 정보가 맞지 않습니다");
       } else {
         return window.alert(`Error: ${e}`);
