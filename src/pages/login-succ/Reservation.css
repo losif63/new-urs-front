@@ -1,3 +1,120 @@
+@font-face {
+  font-family: "ROKAFSansMedium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-3@1.0/ROKAFSansMedium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .container {
   height: 90vh;
+  background-color: #e5e5e5;
+}
+
+.content {
+  height: 100%;
+  margin: 0px 20%;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: #e5e5e5;
+}
+
+.textMessage {
+  height: 30%;
+
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+
+  font-family: "ROKAFSansMedium";
+  font-size: 20px;
+
+  color: #601986;
+  background-color: #e5e5e5;
+}
+
+.search {
+  height: 8%;
+
+  margin: 20px;
+
+  border-radius: 15px;
+  border-color: white;
+
+  box-shadow: 0px 5px 10px -10px;
+
+  padding-left: 10px;
+
+  font-family: "ROKAFSansMedium";
+  background-color: white;
+}
+
+.search::placeholder {
+  color: #9fa0a0;
+  font-family: "ROKAFSansMedium";
+}
+
+.locationHolder {
+  height: 57%;
+
+  margin: 0px 20px 20px 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 20px;
+
+  box-shadow: 0px 5px 10px -10px;
+
+  background-color: white;
+}
+
+.switch {
+  height: 13%;
+  margin: 10px 38%;
+
+  border-radius: 10px;
+
+  display: flex;
+
+  background-color: #f7f6f8;
+}
+
+.forUse,
+.forLocation {
+  width: 50%;
+
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 0px 15px;
+
+  font-family: "ROKAFSansMedium";
+  font-size: 15px;
+  color: #601986;
+}
+
+.forUse {
+  border-right: 1px solid #e5e5e5;
+}
+
+.location {
+  height: 75%;
+
+  background-color: white;
+}
+
+.학술문화관,
+.스포츠컴플렉스,
+.북측운동장,
+.교양분관 {
+  width: 100px;
+  height: 80px;
+
+  padding: 5px 5px;
 }
