@@ -30,6 +30,9 @@
 
 .navBar {
   width: 60%;
+
+  padding: 5px 0px 0px 0px;
+
   display: flex;
   list-style: none;
 
@@ -52,13 +55,4 @@
   /* border-radius: 10px; */
 
   background-color: white;
-}
-
-.navBarMenu:hover {
-  background-color: lightgray;
-}
-
-.navTitle {
-  font-family: "ROKAFSansMedium";
-  color: #601986;
 }

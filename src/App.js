@@ -9,17 +9,28 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import MyReservation from "./pages/login-succ/MyReservation";
 import Reservation from "./pages/login-succ/Reservation";
+import ReservationListView from "./pages/login-succ/reservation/Reservation-ListView";
+import SelectDate from "./pages/login-succ/SelectDate";
+
+import { useState, useEffect } from "react";
+
+import MyReservationOn from "./pages/login-succ/menuBar/MyReservationOn";
+import MyReservationOff from "./pages/login-succ/menuBar/MyReservationOff";
+import ReservationOn from "./pages/login-succ/menuBar/ReservationOn";
+import ReservationOff from "./pages/login-succ/menuBar/ReservationOff";
+import QRReservationOff from "./pages/login-succ/menuBar/QRReservationOff";
 
 import "./App.css";
-import { useState, useEffect } from "react";
 
 export default function App() {
   const [loginSucc, setLoginSucc] = useState(true);
   const [title, setTitle] = useState("");
+  const [MyReservationMaskOn, setMyReservationMaskOn] = useState(false);
+  const [ReservationMaskOn, setReservationMaskOn] = useState(false);
 
   useEffect(() => {
     return;
-  }, [loginSucc]);
+  }, [loginSucc, MyReservationOn, ReservationOn]);
 
   return (
     <BrowserRouter>
@@ -33,9 +44,15 @@ export default function App() {
                 style={{ textDecoration: "none" }}
                 onClick={() => {
                   setTitle("나의 예약");
+                  setMyReservationMaskOn(true);
+                  setReservationMaskOn(false);
                 }}
               >
-                <p className="navTitle">나의 예약</p>
+                {MyReservationMaskOn ? (
+                  <MyReservationOn />
+                ) : (
+                  <MyReservationOff />
+                )}
               </Link>
             </li>
             <li className="navBarMenu">
@@ -44,13 +61,15 @@ export default function App() {
                 style={{ textDecoration: "none" }}
                 onClick={() => {
                   setTitle("예약");
+                  setMyReservationMaskOn(false);
+                  setReservationMaskOn(true);
                 }}
               >
-                <p className="navTitle">예약</p>
+                {ReservationMaskOn ? <ReservationOn /> : <ReservationOff />}
               </Link>
             </li>
             <li className="navBarMenu">
-              <p className="navTitle">QR 예약</p>
+              <QRReservationOff />
             </li>
           </nav>
         </div>
@@ -61,6 +80,14 @@ export default function App() {
         {loginSucc ? (
           <>
             <Route path="reservation" element={<Reservation />} />
+            <Route
+              path="reservation/list-view"
+              element={<ReservationListView />}
+            />
+            <Route
+              path="reservation/list-view/selectDate"
+              element={<SelectDate />}
+            />
             <Route path="myReservation" element={<MyReservation />} />
           </>
         ) : (
