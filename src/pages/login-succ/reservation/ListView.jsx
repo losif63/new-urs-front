@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import "./ListView.css";
+
 export default function ListView() {
   return (
     <div className="roomInfo">
