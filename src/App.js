@@ -1,4 +1,10 @@
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  Routes,
+  Link,
+  useLocation,
+} from "react-router-dom";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import MyReservation from "./pages/login-succ/MyReservation";
@@ -9,6 +15,7 @@ import { useState, useEffect } from "react";
 
 export default function App() {
   const [loginSucc, setLoginSucc] = useState(true);
+  const [title, setTitle] = useState("");
 
   useEffect(() => {
     return;
@@ -18,15 +25,27 @@ export default function App() {
     <BrowserRouter>
       {loginSucc ? (
         <div className="header">
-          <div className="curTitle">나의 예약</div>
+          <div className="curTitle">{title}</div>
           <nav className="navBar">
             <li className="navBarMenu">
-              <Link to="myReservation" style={{ textDecoration: "none" }}>
+              <Link
+                to="myReservation"
+                style={{ textDecoration: "none" }}
+                onClick={() => {
+                  setTitle("나의 예약");
+                }}
+              >
                 <p className="navTitle">나의 예약</p>
               </Link>
             </li>
             <li className="navBarMenu">
-              <Link to="reservation" style={{ textDecoration: "none" }}>
+              <Link
+                to="reservation"
+                style={{ textDecoration: "none" }}
+                onClick={() => {
+                  setTitle("예약");
+                }}
+              >
                 <p className="navTitle">예약</p>
               </Link>
             </li>

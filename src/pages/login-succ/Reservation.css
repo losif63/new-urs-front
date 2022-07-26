@@ -105,20 +105,11 @@
 
 .location {
   height: 75%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 30px 0px 0px 30px;
+  /* display: flex;
+  align-items: center; */
+  /* justify-content: center; */
   background-color: white;
   /* border: 3px solid #601986;
   border-radius: 30px; */
-}
-
-.학술문화관,
-.스포츠컴플렉스,
-.북측운동장,
-.교양분관 {
-  width: 100px;
-  height: 80px;
-
-  padding: 5px 5px;
 }
