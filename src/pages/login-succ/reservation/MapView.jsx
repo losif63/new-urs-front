@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 import "./MapView.css";
 
@@ -12,27 +13,111 @@ export default function MapView() {
       return (
         <div className="Map1F">
           <div className="GroupStudyRoom1and8">
-            <div className="GroupStudyRoom1">그룹스터디룸 1</div>
-            <div className="GroupStudyRoom2">그룹스터디룸 2</div>
-            <div className="GroupStudyRoom3">그룹스터디룸 3</div>
-            <div className="GroupStudyRoom4">그룹스터디룸 4</div>
-            <div className="GroupStudyRoom5">그룹스터디룸 5</div>
-            <div className="GroupStudyRoom6">그룹스터디룸 6</div>
-            <div className="GroupStudyRoom7">그룹스터디룸 7</div>
-            <div className="GroupStudyRoom8">그룹스터디룸 8</div>
+            <div className="GroupStudyRoom1">
+              <Link
+                to="selectDate"
+                style={{ textDecoration: "none", color: "#9b72b0" }}
+              >
+                그룹스터디룸 1
+              </Link>
+            </div>
+            <div className="GroupStudyRoom2">
+              <Link
+                to="selectDate"
+                style={{ textDecoration: "none", color: "#9b72b0" }}
+              >
+                그룹스터디룸 2
+              </Link>
+            </div>
+            <div className="GroupStudyRoom3">
+              <Link
+                to="selectDate"
+                style={{ textDecoration: "none", color: "#9b72b0" }}
+              >
+                그룹스터디룸 3
+              </Link>
+            </div>
+            <div className="GroupStudyRoom4">
+              <Link
+                to="selectDate"
+                style={{ textDecoration: "none", color: "#9b72b0" }}
+              >
+                그룹스터디룸 4
+              </Link>
+            </div>
+            <div className="GroupStudyRoom5">
+              <Link
+                to="selectDate"
+                style={{ textDecoration: "none", color: "#9b72b0" }}
+              >
+                그룹스터디룸 5
+              </Link>
+            </div>
+            <div className="GroupStudyRoom6">
+              <Link
+                to="selectDate"
+                style={{ textDecoration: "none", color: "#9b72b0" }}
+              >
+                그룹스터디룸 6
+              </Link>
+            </div>
+            <div className="GroupStudyRoom7">
+              <Link
+                to="selectDate"
+                style={{ textDecoration: "none", color: "#9b72b0" }}
+              >
+                그룹스터디룸 7
+              </Link>
+            </div>
+            <div className="GroupStudyRoom8">
+              <Link
+                to="selectDate"
+                style={{ textDecoration: "none", color: "#9b72b0" }}
+              >
+                그룹스터디룸 8
+              </Link>
+            </div>
           </div>
           <div className="middle"></div>
           <div className="GroupStudyRoomAandD">
-            <div className="GroupStudyRoomA">그룹스터디룸 A</div>
-            <div className="GroupStudyRoomB">그룹스터디룸 B</div>
-            <div className="GroupStudyRoomC">그룹스터디룸 C</div>
-            <div className="GroupStudyRoomD">그룹스터디룸 D</div>
+            <div className="GroupStudyRoomA">
+              <Link
+                to="selectDate"
+                style={{ textDecoration: "none", color: "#9b72b0" }}
+              >
+                그룹스터디룸 A
+              </Link>
+            </div>
+            <div className="GroupStudyRoomB">
+              <Link
+                to="selectDate"
+                style={{ textDecoration: "none", color: "#9b72b0" }}
+              >
+                그룹스터디룸 B
+              </Link>
+            </div>
+            <div className="GroupStudyRoomC">
+              <Link
+                to="selectDate"
+                style={{ textDecoration: "none", color: "#9b72b0" }}
+              >
+                그룹스터디룸 C
+              </Link>
+            </div>
+            <div className="GroupStudyRoomD">
+              <Link
+                to="selectDate"
+                style={{ textDecoration: "none", color: "#9b72b0" }}
+              >
+                그룹스터디룸 D
+              </Link>
+            </div>
             <div className="Office">사무실</div>
           </div>
         </div>
       );
     } else {
-      return <div className="Map2F">2F</div>;
+      return <div className="Map2F"></div>;
     }
   }
 

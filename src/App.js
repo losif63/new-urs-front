@@ -11,6 +11,7 @@ import MyReservation from "./pages/login-succ/MyReservation";
 import Reservation from "./pages/login-succ/Reservation";
 import ReservationListView from "./pages/login-succ/reservation/Reservation-ListView";
 import SelectDate from "./pages/login-succ/SelectDate";
+import ReservationInfo from "./pages/login-succ/ReservationInfo";
 
 import { useState, useEffect } from "react";
 
@@ -87,6 +88,10 @@ export default function App() {
             <Route
               path="reservation/list-view/selectDate"
               element={<SelectDate />}
+            />
+            <Route
+              path="reservation/list-view/selectDate/reservationInfo"
+              element={<ReservationInfo />}
             />
             <Route path="myReservation" element={<MyReservation />} />
           </>
