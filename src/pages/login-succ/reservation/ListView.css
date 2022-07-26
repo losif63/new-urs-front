@@ -1,0 +1,29 @@
+.roomInfo {
+  height: 80%;
+  display: flex;
+}
+
+.Floor1,
+.Floor2 {
+  display: flex;
+
+  width: 50%;
+}
+
+.Floor1 {
+  border-right: 1px solid #e5e5e5;
+}
+
+.floorName {
+  width: 30%;
+  padding-left: 20px;
+
+  font-size: 20px;
+  color: #601986;
+}
+
+.roomName {
+  padding-top: 5px;
+
+  font-size: 18px;
+}

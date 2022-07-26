@@ -1,72 +1,23 @@
 import React from "react";
 import { useState } from "react";
 
+import ListView from "./ListView";
+import MapView from "./MapView";
+
 import "./Reservation-ListView.css";
-import { Link } from "react-router-dom";
 
 export default function ReservationListView() {
   const [listOn, setListOn] = useState(true);
   const [mapColor, setMapColor] = useState("#7A7A7A");
   const [listColor, setListColor] = useState("#601986");
+  const [textColor, setTextColor] = useState("#601986");
+  const [backColor, setBackColor] = useState("#FFFFFF");
 
   function Switcher() {
     if (listOn) {
-      return (
-        <div className="roomInfo">
-          <div className="Floor1">
-            <div className="floorName">
-              <p>1F</p>
-            </div>
-            <div>
-              <Link
-                to="selectDate"
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                <p className="roomName">그룹스터디룸</p>
-              </Link>
-              <Link
-                to="selectDate"
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                <p className="roomName">열람실</p>
-              </Link>
-              <Link
-                to="selectDate"
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                <p className="roomName">노트북열람실</p>
-              </Link>
-            </div>
-          </div>
-          <div className="Floor2">
-            <div className="floorName">
-              <p>2F</p>
-            </div>
-            <div>
-              <Link
-                to="selectDate"
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                <p className="roomName">세미나실</p>
-              </Link>
-              <Link
-                to="selectDate"
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                <p className="roomName">열람실</p>
-              </Link>
-              <Link
-                to="selectDate"
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                <p className="roomName">노트북열람실</p>
-              </Link>
-            </div>
-          </div>
-        </div>
-      );
+      return <ListView />;
     } else {
-      return <div className="roomInfo"></div>;
+      return <MapView />;
     }
   }
 
@@ -74,9 +25,11 @@ export default function ReservationListView() {
     <div className="container">
       <div className="content">
         <div className="textMessage">이용하실 방을 선택해주세요</div>
-        <div className="locationHolder">
+        <div className="locationHolder" style={{ backgroundColor: backColor }}>
           <div className="locationHeader">
-            <div className="locationName">교양분관</div>
+            <div className="locationName" style={{ color: textColor }}>
+              교양분관
+            </div>
             <div className="switchListView">
               <div
                 className="forMap"
@@ -84,6 +37,8 @@ export default function ReservationListView() {
                   setListOn(false);
                   setMapColor("#601986");
                   setListColor("#7A7A7A");
+                  setTextColor("#FFFFFF");
+                  setBackColor("#9B72B0");
                 }}
                 style={{ color: mapColor }}
               >
@@ -95,6 +50,8 @@ export default function ReservationListView() {
                   setListOn(true);
                   setMapColor("#7A7A7A");
                   setListColor("#601986");
+                  setTextColor("#601986");
+                  setBackColor("#FFFFFF");
                 }}
                 style={{ color: listColor }}
               >

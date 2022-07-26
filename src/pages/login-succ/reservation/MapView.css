@@ -1,0 +1,116 @@
+.roomInfo {
+  display: flex;
+}
+
+.leftBlank {
+  width: 10%;
+
+  position: relative;
+}
+
+.floorSwitch {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+
+  height: 30%;
+  width: 65%;
+
+  position: absolute;
+  bottom: 0%;
+
+  margin: 5px 15px;
+
+  border-radius: 10px;
+  background-color: #f7f6f8;
+}
+
+.floor1,
+.floor2 {
+  display: flex;
+
+  height: 50%;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+}
+
+.floor1 {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.Map1F,
+.Map2F {
+  width: 90%;
+
+  margin: 5px 10px 0px 10px;
+
+  display: flex;
+}
+
+.GroupStudyRoom1and8 {
+  width: 20%;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+.GroupStudyRoom1,
+.GroupStudyRoom2,
+.GroupStudyRoom3,
+.GroupStudyRoom4,
+.GroupStudyRoom5,
+.GroupStudyRoom6,
+.GroupStudyRoom7,
+.GroupStudyRoom8 {
+  margin: 5px;
+
+  height: 13%;
+
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 5px;
+
+  font-size: 14px;
+
+  color: #9b72b0;
+  background-color: #e5e5e5;
+}
+
+.middle {
+  width: 50%;
+}
+
+.GroupStudyRoomAandD {
+  width: 30%;
+}
+
+.GroupStudyRoomA,
+.GroupStudyRoomB,
+.GroupStudyRoomC,
+.GroupStudyRoomD,
+.Office {
+  height: 15%;
+  margin: 10px;
+
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 5px;
+
+  color: #9b72b0;
+  background-color: #e5e5e5;
+}
+
+.Office {
+  height: 24%;
+}
