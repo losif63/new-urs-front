@@ -32,7 +32,7 @@ function ReservationInstance(props) {
         <text className="dateInfo">{props.dateInfo}</text> <br></br>
         <text className="timeInfo">{props.timeInfo}</text> <br></br>
       </div>
-      <button onClick={() => setModalIsOpen(true)}>Open</button>
+      <button onClick={() => setModalIsOpen(true)}>상세보기</button>
       <ReactModal isOpen={modalIsOpen} style={{
         overlay: {
           position: 'fixed',
