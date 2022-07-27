@@ -7,6 +7,7 @@ import ReservationListView from "./pages/login-succ/reservation/Reservation-List
 import SelectDate from "./pages/login-succ/SelectDate";
 import ReservationInfo from "./pages/login-succ/ReservationInfo";
 import Confirm from "./pages/login-succ/Confirm";
+import CompleteReservation from "./pages/login-succ/CompleteReservation";
 
 import { useState, useEffect } from "react";
 
@@ -90,6 +91,10 @@ export default function App() {
             <Route
               path="reservation/list-view/selectDate/reservationInfo/confirm"
               element={<Confirm />}
+            />
+            <Route
+              path="reservation/list-view/selectDate/reservationInfo/confirm/completeReservation"
+              element={<CompleteReservation />}
             />
             <Route path="myReservation" element={<MyReservation />} />
           </>
