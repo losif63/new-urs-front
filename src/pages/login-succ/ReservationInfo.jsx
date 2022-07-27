@@ -11,6 +11,7 @@ export default function ReservationInfo() {
   const [myNameCheck, setMyNameCheck] = useState(false);
   const [policyCheck, setPolicyCheck] = useState(false);
   const [name, setName] = useState("");
+  const [purpose, setPurpose] = useState("");
 
   return (
     <div className="container">
@@ -48,7 +49,13 @@ export default function ReservationInfo() {
             </div>
             <div className="useInputPart">
               <div className="use">이용사유</div>
-              <textarea className="useInput" />
+              <textarea
+                className="useInput"
+                value={purpose}
+                onChange={(e) => {
+                  setPurpose(e.target.value);
+                }}
+              />
             </div>
           </div>
           <div className="userPolicy">
@@ -61,7 +68,13 @@ export default function ReservationInfo() {
             >
               {policyCheck ? <PolicyCheckOn /> : <PolicyCheckOff />}
             </div>
-            <div className="nextButtonInfo">
+            <div
+              className="nextButtonInfo"
+              style={{
+                backgroundColor:
+                  policyCheck && name && purpose ? "#601986" : "#9fa0a0",
+              }}
+            >
               <Link
                 to="confirm"
                 style={{ textDecoration: "none", color: "white" }}
