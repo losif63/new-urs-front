@@ -25,7 +25,7 @@ function ReservationInstance(props) {
   };
   return (
     <div className="reservationInstance">
-      <div className="textArea">
+      <div className="textArea" onClick={() => setModalIsOpen(true)}>
         <div className="room_name">{props.room_name}</div>
         <div className="building_name">{props.building_name}</div>
         <div className="dateShowHolder">
@@ -38,63 +38,44 @@ function ReservationInstance(props) {
           </div>
         </div>
         <div className="borderLine"></div>
-        <div
-          className="showRerservationButton"
-          onClick={() => setModalIsOpen(true)}
-        >
-          상세보기
-        </div>
-        <ReactModal
-          isOpen={modalIsOpen}
-          style={{
-            overlay: {
-              position: "fixed",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              backgroundColor: "rgba(50, 50, 50, 0.9)",
-            },
-            content: {
-              position: "absolute",
-              top: "15%",
-              left: "40%",
-              right: "40%",
-              bottom: "15%",
-              border: "1px solid #ccc",
-              background: "#fff",
-              overflow: "auto",
-              WebkitOverflowScrolling: "touch",
-              borderRadius: "27px",
-              outline: "none",
-              padding: "20px",
-            },
-          }}
-        >
-          <button onClick={() => setModalIsOpen(false)}>
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <div className="modalTitle">
-            <text>{props.room_name}</text>
-            <br></br>
-            <text>{props.building_name}</text>
-            <br></br>
-          </div>
-          <text>{props.room_name}</text>
-          <br></br>
-          <text>{props.building_name}</text>
-          <br></br>
-          <text>{props.dateInfo}</text>
-          <br></br>
-          <text>{props.timeInfo}</text>
-          <br></br>
-          <text>{props.username}</text>
-          <br></br>
-          <text>{props.activity_name}</text>
-          <br></br>
-          <button onClick={deleteReservation}>예약 취소</button>
-        </ReactModal>
       </div>
+      <ReactModal className="modal" isOpen={modalIsOpen}>
+        <div className="backButton" onClick={() => setModalIsOpen(false)}>
+          뒤로 가기
+        </div>
+        <div className="reservationInfoDisplay">
+          <div className="confirmHeader">
+            <div className="locationInfo1">{props.room_name}</div>
+            <div className="locationInfo2">{props.building_name}</div>
+          </div>
+          <div className="locationDisplay">
+            <div className="textDisplay">장소</div>
+            <div className="infoDisplayWithMap">
+              <div className="line">{props.room_name}</div>
+              <div className="line">{props.building_name}</div>
+            </div>
+            <div className="watchForMap">지도로 보기</div>
+          </div>
+          <div className="dateDisplay">
+            <div className="textDisplay">일시</div>
+            <div className="infoDisplay">
+              <div className="line">{props.dateInfo}</div>
+              <div className="line">{props.timeInfo}</div>
+            </div>
+          </div>
+          <div className="nameDisplay">
+            <div className="textDisplay">이름</div>
+            <div className="infoDisplay">{props.username}</div>
+          </div>
+          <div className="purposeDisplay">
+            <div className="textDisplay">이용사유</div>
+            <div className="infoDisplay">{props.activity_name}</div>
+          </div>
+        </div>
+        <div className="cancelButton" onClick={deleteReservation}>
+          예약 취소
+        </div>
+      </ReactModal>
     </div>
   );
 }
@@ -164,6 +145,13 @@ function ReservationList(props) {
   return (
     <div className="reservationList">
       {reservations.map((t) => {
+        var month = Number(t.start_time.substring(5, 7));
+        var day = t.start_time.substring(8, 10);
+        const week = ["일", "월", "화", "수", "목", "금", "토"];
+        var weekDayName =
+          week[new Date(t.start_time.substring(0, 10)).getDay()];
+        var dateDisplay = `${month}월\u00a0${day}일\u00a0${weekDayName}`;
+
         return (
           <ReservationInstance
             reservations={reservations}
@@ -172,11 +160,11 @@ function ReservationList(props) {
             r_id={t.r_id}
             room_name={t.room_name}
             building_name={t.building_name}
-            dateInfo={t.start_time.substring(0, 10)}
+            dateInfo={dateDisplay}
             timeInfo={
-              t.start_time.substring(11, 19) +
+              t.start_time.substring(11, 16) +
               " ~ " +
-              t.finish_time.substring(11, 19)
+              t.finish_time.substring(11, 16)
             }
             username={t.username}
             activity_name={t.activity_name}
@@ -192,15 +180,15 @@ export default function MyReservation() {
     <div className="myReservationContainer">
       <div className="myReservationContent">
         <div className="currentReservations">
-          <text className="status">현재 진행 중</text>
+          <div className="status">현재 진행 중</div>
           <ReservationList time="current"></ReservationList>
         </div>
         <div className="futureReservations">
-          <text className="status">예정</text>
+          <div className="status">예정</div>
           <ReservationList time="future"></ReservationList>
         </div>
         <div className="pastReservations">
-          <text className="status">이전 기록</text>
+          <div className="status">이전 기록</div>
           <ReservationList time="past"></ReservationList>
         </div>
       </div>
