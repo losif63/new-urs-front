@@ -5,9 +5,10 @@ import { useState } from "react";
 import "./Confirm.css";
 import { useSelector } from "react-redux";
 
+
 export default function Confirm() {
   const name = useSelector((state) => {
-    return state.reservation.name;
+    return state.login.name;
   });
   const purpose = useSelector((state) => {
     return state.reservation.purpose;

@@ -8,6 +8,7 @@ import PolicyCheckOff from "./reservation/policyCheck/PolicyCheckOff";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import reservationSlice from "./../../reservationSlice";
+import loginSlice from "../../loginSlice";
 
 export default function ReservationInfo() {
   const [myNameCheck, setMyNameCheck] = useState(false);
@@ -17,7 +18,7 @@ export default function ReservationInfo() {
 
   const dispatch = useDispatch();
   const myName = useSelector((state) => {
-    return state.reservation.name;
+    return state.login.name;
   });
 
   useEffect(() => {
@@ -54,6 +55,7 @@ export default function ReservationInfo() {
                 if (name) {
                   setName("");
                 } else {
+                  console.log(myName);
                   setName(myName);
                 }
               }}
@@ -92,7 +94,7 @@ export default function ReservationInfo() {
                 to="confirm"
                 style={{ textDecoration: "none", color: "white" }}
                 onClick={() => {
-                  dispatch(reservationSlice.actions.writeName(name));
+                  dispatch(loginSlice.actions.writeName(name));
                   dispatch(reservationSlice.actions.writePurpose(purpose));
                 }}
               >

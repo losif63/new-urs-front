@@ -31,6 +31,7 @@ export default function Login(props) {
 
       if (response.status === 200) {
         dispatch(loginSlice.actions.writeUId(response.data.u_id));
+        dispatch(loginSlice.actions.writeName(response.data.name));
         dispatch(loginSlice.actions.writeEmail(email));
         dispatch(loginSlice.actions.writePassword(password));
 

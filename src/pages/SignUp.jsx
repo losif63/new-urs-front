@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 
 import signUpSlice from "./../signUpSlice";
-import reservationSlice from "../reservationSlice";
+import loginSlice from "../loginSlice";
 
 import "./SignUp.css";
 
@@ -30,7 +30,7 @@ export default function SignUp() {
       );
 
       if (response.status === 201) {
-        dispatch(reservationSlice.actions.writeName(name));
+        dispatch(loginSlice.actions.writeName(name));
         dispatch(signUpSlice.actions.writeEmail(email));
         dispatch(signUpSlice.actions.writePassword(password));
         return window.alert("회원가입이 성공적으로 완료되었습니다");
