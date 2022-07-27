@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Link, Navigate } from "react-router-dom";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import MyReservation from "./pages/login-succ/MyReservation";
@@ -22,7 +22,7 @@ export default function App() {
   const [loginSucc, setLoginSucc] = useState(false);
   const [title, setTitle] = useState("");
   const [MyReservationMaskOn, setMyReservationMaskOn] = useState(false);
-  const [ReservationMaskOn, setReservationMaskOn] = useState(false);
+  const [ReservationMaskOn, setReservationMaskOn] = useState(true);
 
   useEffect(() => {
     return;
@@ -75,6 +75,7 @@ export default function App() {
       <Routes>
         {loginSucc ? (
           <>
+            <Route path="/" element={<Navigate to="/reservation" />} />
             <Route path="reservation" element={<Reservation />} />
             <Route
               path="reservation/list-view"

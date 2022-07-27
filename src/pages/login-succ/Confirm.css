@@ -52,20 +52,6 @@
   box-shadow: 0px 5px 10px -10px;
 }
 
-.confirmNextButton {
-  height: 7%;
-
-  display: flex;
-  align-items: center;
-
-  justify-content: center;
-
-  border-radius: 10px;
-  font-size: 18px;
-
-  background-color: #9fa0a0;
-}
-
 .confirmHeader {
   padding-top: 15px;
   height: 22%;
@@ -137,4 +123,22 @@
 
 .line {
   padding-bottom: 10px;
+}
+
+.confirmNextButton {
+  height: 7%;
+
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
+
+  border-radius: 10px;
+  font-size: 18px;
+
+  background-color: #9fa0a0;
+}
+
+.confirmNextButton:hover {
+  background-color: #601986;
 }
