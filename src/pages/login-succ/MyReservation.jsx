@@ -4,6 +4,8 @@ import ReactModal from "react-modal";
 import axios from "axios";
 import "./MyReservation.css";
 
+import Approved from "./Approved";
+
 function ReservationInstance(props) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   ReactModal.setAppElement("#root");
@@ -24,22 +26,24 @@ function ReservationInstance(props) {
   return (
     <div className="reservationInstance">
       <div className="textArea">
-        <text className="room_name">{props.room_name}</text> <br></br>
-        <text className="building_name">{props.building_name}</text> <br></br>
-        <div
-          style={{
-            width: "100%",
-            textAlign: "center",
-            borderBottom: "1px solid #aaa",
-            lineHeight: "0.1em",
-            margin: "30px 0 10px",
-          }}
-        ></div>
-        <div className="dateTime">
-          <text className="dateInfo">{props.dateInfo}</text> <br></br>
-          <text className="timeInfo">{props.timeInfo}</text> <br></br>
+        <div className="room_name">{props.room_name}</div>
+        <div className="building_name">{props.building_name}</div>
+        <div className="dateShowHolder">
+          <div className="dateTime">
+            <div className="dateInfo">{props.dateInfo}</div>
+            <div className="timeInfo">{props.timeInfo}</div>
+          </div>
+          <div className="approvedMark">
+            <Approved />
+          </div>
         </div>
-        <button onClick={() => setModalIsOpen(true)}>상세보기</button>
+        <div className="borderLine"></div>
+        <div
+          className="showRerservationButton"
+          onClick={() => setModalIsOpen(true)}
+        >
+          상세보기
+        </div>
         <ReactModal
           isOpen={modalIsOpen}
           style={{
@@ -185,8 +189,8 @@ function ReservationList(props) {
 
 export default function MyReservation() {
   return (
-    <div className="container">
-      <div className="content">
+    <div className="myReservationContainer">
+      <div className="myReservationContent">
         <div className="currentReservations">
           <text className="status">현재 진행 중</text>
           <ReservationList time="current"></ReservationList>
