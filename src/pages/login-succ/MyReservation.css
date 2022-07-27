@@ -20,7 +20,7 @@
 .reservationInstance {
   background-color: white;
   border-radius: 25px;
-  width: 75%;
+  width: 70%;
   height: 15vh;
   margin: 10px;
   display: flex;
@@ -50,6 +50,21 @@
   font-weight: 500;
 }
 
+.username {
+  flex: 1;
+  font-family: 'ROKAFSansMedium';
+  font-style: normal;
+  font-weight: 500;
+}
+
+.activity_name {
+  flex: 1;
+  font-family: 'ROKAFSansMedium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: small;
+}
+
 .dateInfo {
   font-family: 'ROKAFSansMedium';
   font-style: normal;
@@ -68,4 +83,5 @@
 
 .dateTime {
   text-align: end;
+  height: auto;
 }
