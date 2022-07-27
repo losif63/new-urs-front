@@ -6,12 +6,16 @@ import NameCheckOff from "./reservation/myNameCheck/NameCheckOff";
 import PolicyCheckOn from "./reservation/policyCheck/PolicyCheckOn";
 import PolicyCheckOff from "./reservation/policyCheck/PolicyCheckOff";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import reservationSlice from "./../../reservationSlice";
 
 export default function ReservationInfo() {
   const [myNameCheck, setMyNameCheck] = useState(false);
   const [policyCheck, setPolicyCheck] = useState(false);
   const [name, setName] = useState("");
   const [purpose, setPurpose] = useState("");
+
+  const dispatch = useDispatch();
 
   return (
     <div className="container">
@@ -78,6 +82,10 @@ export default function ReservationInfo() {
               <Link
                 to="confirm"
                 style={{ textDecoration: "none", color: "white" }}
+                onClick={() => {
+                  dispatch(reservationSlice.actions.writeName(name));
+                  dispatch(reservationSlice.actions.writePurpose(purpose));
+                }}
               >
                 다음 ➤
               </Link>

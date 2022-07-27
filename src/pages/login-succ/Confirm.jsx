@@ -3,8 +3,16 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 import "./Confirm.css";
+import { useSelector } from "react-redux";
 
 export default function Confirm() {
+  const name = useSelector((state) => {
+    return state.reservation.name;
+  });
+  const purpose = useSelector((state) => {
+    return state.reservation.purpose;
+  });
+
   return (
     <div className="container">
       <div className="confirmContent">
@@ -31,11 +39,11 @@ export default function Confirm() {
           </div>
           <div className="nameDisplay">
             <div className="textDisplay">이름</div>
-            <div className="infoDisplay">안태찬</div>
+            <div className="infoDisplay">{name}</div>
           </div>
           <div className="purposeDisplay">
             <div className="textDisplay">이용사유</div>
-            <div className="infoDisplay">몰입캠프 스터디</div>
+            <div className="infoDisplay">{purpose}</div>
           </div>
         </div>
         <div className="confirmNextButton">
