@@ -17,7 +17,7 @@
 }
 
 .ursTitle {
-  height: 50%;
+  height: 45%;
 
   color: white;
   font-size: 80px;
@@ -33,7 +33,7 @@
   background-color: #601986;
 }
 
-.input {
+.signUpInput {
   margin: 10px 30%;
   height: 5%;
   border-radius: 10px;
