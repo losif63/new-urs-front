@@ -1,10 +1,4 @@
-import {
-  BrowserRouter,
-  Route,
-  Routes,
-  Link,
-  useLocation,
-} from "react-router-dom";
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import MyReservation from "./pages/login-succ/MyReservation";
@@ -12,6 +6,7 @@ import Reservation from "./pages/login-succ/Reservation";
 import ReservationListView from "./pages/login-succ/reservation/Reservation-ListView";
 import SelectDate from "./pages/login-succ/SelectDate";
 import ReservationInfo from "./pages/login-succ/ReservationInfo";
+import Confirm from "./pages/login-succ/Confirm";
 
 import { useState, useEffect } from "react";
 
@@ -22,7 +17,6 @@ import ReservationOff from "./pages/login-succ/menuBar/ReservationOff";
 import QRReservationOff from "./pages/login-succ/menuBar/QRReservationOff";
 
 import "./App.css";
-
 export default function App() {
   const [loginSucc, setLoginSucc] = useState(true);
   const [title, setTitle] = useState("");
@@ -92,6 +86,10 @@ export default function App() {
             <Route
               path="reservation/list-view/selectDate/reservationInfo"
               element={<ReservationInfo />}
+            />
+            <Route
+              path="reservation/list-view/selectDate/reservationInfo/confirm"
+              element={<Confirm />}
             />
             <Route path="myReservation" element={<MyReservation />} />
           </>

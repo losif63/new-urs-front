@@ -54,7 +54,7 @@ export default function SelectDate() {
               <div
                 className="day"
                 onClick={() => {
-                  setDate("week");
+                  setDate("day");
                   setMonthColor("#7A7A7A");
                   setWeekColor("#7A7A7A");
                   setDayColor("#601986");

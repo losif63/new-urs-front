@@ -24,7 +24,7 @@
 }
 
 .textMessage {
-  height: 30%;
+  height: 25%;
 
   display: flex;
   align-items: center;
@@ -37,16 +37,38 @@
   background-color: #e5e5e5;
 }
 
+.boxTitleHolder {
+  height: 5%;
+  display: flex;
+
+  margin: 0px 30px;
+}
+
+.userInfoTitle,
+.userPolicyTitle {
+  width: 50%;
+
+  padding-top: 5px;
+
+  font-size: 15px;
+
+  padding-left: 10px;
+  color: #9fa0a0;
+}
+
+.userPolicyTitle {
+  padding-left: 20px;
+}
+
 .reservationInfoHolder {
-  height: 65%;
+  height: 50%;
 
   margin: 0px 20px 10px 20px;
 
   display: flex;
 }
 
-.userInfo,
-.userPolicy {
+.userInfo {
   width: 50%;
   margin: 0px 10px;
   border-radius: 10px;
@@ -58,26 +80,22 @@
 
 .nameInputPart {
   margin-top: 5%;
-  height: 10%;
+  height: 12%;
 
   display: flex;
-
-  background-color: red;
 }
 
 .useInputPart {
-  height: 40%;
+  height: 60%;
 
   display: flex;
-
-  background-color: blue;
 }
 
 .myName,
 .use {
   width: 30%;
 
-  padding: 5px 15px;
+  padding: 10px 15px;
 }
 
 .nameInput,
@@ -87,21 +105,63 @@
   margin-right: 5%;
   border-radius: 10px;
 
+  padding-left: 10px;
+
+  font-family: "ROKAFSansMedium";
+
   background-color: #f7f6f8;
 }
 
-.checkDiv {
+.useInput {
+  padding-top: 10px;
+}
+
+input[type="text"],
+textarea {
+  border-style: inset;
+  border-width: 2px;
+}
+
+.checkName {
+  padding-left: 35%;
+  padding-top: 5px;
   height: 10%;
-  background-color: violet;
+}
+
+.userPolicy {
+  width: 50%;
+  margin: 0px 10px;
+}
+
+.userPolicyInput {
+  height: 71%;
+
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px -10px;
+
+  background-color: white;
+}
+
+.checkPolicy {
+  height: 6%;
+
+  padding: 10px 5px;
+
+  background-color: #e5e5e5;
+}
+
+.nextButtonInfo {
+  height: 17%;
+
+  border-radius: 10px;
 
   display: flex;
-}
+  align-items: center;
 
-.checkButton {
-  width: 40%;
-  background-color: aqua;
-}
+  justify-content: center;
 
-.checkText {
-  width: 40%;
+  font-size: 18px;
+
+  color: white;
+  background-color: #9fa0a0;
 }
