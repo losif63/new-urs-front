@@ -11,6 +11,8 @@
 
 .reservationList {
   width: 100%;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -20,5 +22,50 @@
   border-radius: 25px;
   width: 75%;
   height: 15vh;
-  display: block;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.textArea {
+  width: 94%;
+  height: 90%;
+}
+
+.room_name {
+  flex: 1;
+  font-family: 'ROKAFSansMedium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: larger;
+}
+
+.building_name {
+  flex: 1;
+  font-family: 'ROKAFSansMedium';
+  font-style: normal;
+  font-weight: 500;
+}
+
+.dateInfo {
+  font-family: 'ROKAFSansMedium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: small;
+  color: #9FA0A0;
+}
+
+.timeInfo {
+  font-family: 'ROKAFSansMedium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: small;
+  color: #9FA0A0;
+}
+
+.dateTime {
+  text-align: end;
 }

@@ -19,7 +19,7 @@ import QRReservationOff from "./pages/login-succ/menuBar/QRReservationOff";
 
 import "./App.css";
 export default function App() {
-  const [loginSucc, setLoginSucc] = useState(true);
+  const [loginSucc, setLoginSucc] = useState(false);
   const [title, setTitle] = useState("");
   const [MyReservationMaskOn, setMyReservationMaskOn] = useState(false);
   const [ReservationMaskOn, setReservationMaskOn] = useState(false);
