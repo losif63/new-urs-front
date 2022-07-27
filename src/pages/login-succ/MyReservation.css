@@ -2,9 +2,19 @@
   height: 90vh;
 }
 
+.content {
+  height: 100%;
+  margin: 0px 20%;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: #e5e5e5;
+}
+
 .status {
-  color: #9FA0A0;
-  font-family: 'ROKAFSansMedium';
+  color: #9fa0a0;
+  font-family: "ROKAFSansMedium";
   font-style: normal;
   font-weight: 500;
 }
@@ -26,7 +36,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
 }
 
 .textArea {
@@ -36,7 +45,7 @@
 
 .room_name {
   flex: 1;
-  font-family: 'ROKAFSansMedium';
+  font-family: "ROKAFSansMedium";
   font-style: normal;
   font-weight: 500;
   font-size: larger;
@@ -44,40 +53,40 @@
 
 .building_name {
   flex: 1;
-  font-family: 'ROKAFSansMedium';
+  font-family: "ROKAFSansMedium";
   font-style: normal;
   font-weight: 500;
 }
 
 .username {
   flex: 1;
-  font-family: 'ROKAFSansMedium';
+  font-family: "ROKAFSansMedium";
   font-style: normal;
   font-weight: 500;
 }
 
 .activity_name {
   flex: 1;
-  font-family: 'ROKAFSansMedium';
+  font-family: "ROKAFSansMedium";
   font-style: normal;
   font-weight: 500;
   font-size: small;
 }
 
 .dateInfo {
-  font-family: 'ROKAFSansMedium';
+  font-family: "ROKAFSansMedium";
   font-style: normal;
   font-weight: 500;
   font-size: small;
-  color: #9FA0A0;
+  color: #9fa0a0;
 }
 
 .timeInfo {
-  font-family: 'ROKAFSansMedium';
+  font-family: "ROKAFSansMedium";
   font-style: normal;
   font-weight: 500;
   font-size: small;
-  color: #9FA0A0;
+  color: #9fa0a0;
 }
 
 .dateTime {
