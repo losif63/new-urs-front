@@ -1,12 +1,12 @@
 import React from "react";
 import "./ReservationInfo.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NameCheckOn from "./reservation/myNameCheck/NameCheckOn";
 import NameCheckOff from "./reservation/myNameCheck/NameCheckOff";
 import PolicyCheckOn from "./reservation/policyCheck/PolicyCheckOn";
 import PolicyCheckOff from "./reservation/policyCheck/PolicyCheckOff";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import reservationSlice from "./../../reservationSlice";
 
 export default function ReservationInfo() {
@@ -16,6 +16,15 @@ export default function ReservationInfo() {
   const [purpose, setPurpose] = useState("");
 
   const dispatch = useDispatch();
+  const myName = useSelector((state) => {
+    return state.reservation.name;
+  });
+
+  useEffect(() => {
+    if (name === "") {
+      setMyNameCheck(false);
+    }
+  }, [name]);
 
   return (
     <div className="container">
@@ -45,7 +54,7 @@ export default function ReservationInfo() {
                 if (name) {
                   setName("");
                 } else {
-                  setName("안태찬");
+                  setName(myName);
                 }
               }}
             >
