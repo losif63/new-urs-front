@@ -115,12 +115,12 @@ export default function SelectDate() {
                 <div className="start">
                   <p className="Text">시작</p>
                   <input className="date" type="text" value={startDate.toLocaleDateString().replaceAll('/', '-')} readOnly/>
-                  <input className="time" type="text"/>
+                  <input className="time" type="text" placeholder="HH:MM:SS"/>
                 </div>
                 <div className="finish">
                   <p className="Text">종료</p>
                   <input className="date" type="text" value={startDate.toLocaleDateString().replaceAll('/', '-')} readOnly/>
-                  <input className="time" type="text" />
+                  <input className="time" type="text" placeholder="HH:MM:SS"/>
                 </div>
               </div>
               <div className="nextButton">
