@@ -1,12 +1,16 @@
 import React, { useEffect } from "react";
-import "./SelectDate.css";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
 import moment from "moment";
 import axios from "axios";
+
+import loginSlice from "../../loginSlice";
+import reservationSlice from "../../reservationSlice";
+
+import "./SelectDate.css";
 
 export default function SelectDate() {
   const lId = useSelector((state) => {
@@ -19,6 +23,7 @@ export default function SelectDate() {
   const [dayColor, setDayColor] = useState("#7A7A7A");
 
   const [startDate, setStartDate] = useState(new Date());
+  const dispatch = useDispatch();
 
   function Switcher() {
     if (date === "month") {
@@ -29,7 +34,6 @@ export default function SelectDate() {
             formatDay={(locale, date) => Number(moment(date).format("DD"))}
             minDetail="month"
             maxDetail="month"
-            // navigationLabel={null}
             showNeighboringMonth={false} //  이전, 이후 달의 날짜는 보이지 않도록 설정
             onChange={setStartDate}
             value={startDate}
@@ -46,16 +50,22 @@ export default function SelectDate() {
   useEffect(() => {
     const tomorrow = new Date(startDate);
     tomorrow.setDate(startDate.getDate() + 1);
-    axios.post(`${process.env.REACT_APP_SERVER_URL}/reservation/roomreservations`,
-      {
-        l_id: lId,
-        interval_start: `${moment(startDate.toLocaleDateString()).format("YYYY-MM-DD")} 00:00:00`,
-        interval_end: `${moment(tomorrow.toLocaleDateString()).format("YYYY-MM-DD")} 00:00:00`
-      }
-    ).then((response) => {
-      console.log(response.data);
-    });
-
+    axios
+      .post(
+        `${process.env.REACT_APP_SERVER_URL}/reservation/roomreservations`,
+        {
+          l_id: lId,
+          interval_start: `${moment(startDate.toLocaleDateString()).format(
+            "YYYY-MM-DD"
+          )} 00:00:00`,
+          interval_end: `${moment(tomorrow.toLocaleDateString()).format(
+            "YYYY-MM-DD"
+          )} 00:00:00`,
+        }
+      )
+      .then((response) => {
+        console.log(response.data);
+      });
   }, [startDate]);
 
   return (
@@ -107,26 +117,43 @@ export default function SelectDate() {
             </div>
           </div>
           <div className="roomInfo">
-            <div className="Calendar">
+            <div className="switchDisplayView">
               <Switcher />
             </div>
             <div className="SelectBox">
+              <div className="timeDisplay"></div>
               <div className="timeSelectButton">
                 <div className="start">
                   <p className="Text">시작</p>
-                  <input className="date" type="text" value={startDate.toLocaleDateString().replaceAll('/', '-')} readOnly/>
-                  <input className="time" type="text" placeholder="HH:MM:SS"/>
+                  <input
+                    className="date"
+                    type="text"
+                    value={moment(startDate.toLocaleDateString()).format("YYYY-MM-DD")}
+                    readOnly
+                  />
+                  <input className="time" id="startingTime"  type="text" placeholder="HH:MM:SS"/>
                 </div>
                 <div className="finish">
                   <p className="Text">종료</p>
-                  <input className="date" type="text" value={startDate.toLocaleDateString().replaceAll('/', '-')} readOnly/>
-                  <input className="time" type="text" placeholder="HH:MM:SS"/>
+                  <input
+                    className="date"
+                    type="text"
+                    value={moment(startDate.toLocaleDateString()).format("YYYY-MM-DD")}
+                    readOnly
+                  />
+                  <input className="time" id="finishingTime" type="text" placeholder="HH:MM:SS"/>
                 </div>
               </div>
               <div className="nextButton">
                 <Link
                   to="reservationInfo"
                   style={{ textDecoration: "none", color: "white" }}
+                  onClick={() => {
+                    console.log(`${moment(startDate.toLocaleDateString()).format("YYYY-MM-DD")} ${document.getElementById("startingTime").value}`);
+                    console.log(`${moment(startDate.toLocaleDateString()).format("YYYY-MM-DD")} ${document.getElementById("finishingTime").value}`);
+                    dispatch(reservationSlice.actions.writeStartTime(`${moment(startDate.toLocaleDateString()).format("YYYY-MM-DD")} ${document.getElementById("startingTime").value}`));
+                    dispatch(reservationSlice.actions.writeFinishTime(`${moment(startDate.toLocaleDateString()).format("YYYY-MM-DD")} ${document.getElementById("finishingTime").value}`));
+                  }}
                 >
                   다음 ➤
                 </Link>
