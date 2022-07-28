@@ -7,6 +7,7 @@ import moment from "moment";
 import axios from "axios";
 
 import "./SelectDate.css";
+import Reservation from "./Reservation";
 
 export default function SelectDate() {
   const lId = useSelector((state) => {
@@ -19,6 +20,35 @@ export default function SelectDate() {
   const [dayColor, setDayColor] = useState("#7A7A7A");
 
   const [startDate, setStartDate] = useState(new Date());
+
+  function Resevation(props) {
+    const interval_start = props.interval_start.substring(11, 16);
+    const interval_end = props.interval_end.substring(11, 16);
+
+    const time = `${interval_start}~${interval_end}`;
+    return (
+      <div className="Reservation">
+        <div className="R_Name">{props.name}</div>
+        <div className="R_time">{time}</div>
+      </div>
+    );
+  }
+
+  function Resevations() {
+    return (
+      <div className="Reservations">
+        {reservationList.map((t) => {
+          return (
+            <Resevation
+              name={t.username}
+              interval_start={t.start_time}
+              interval_end={t.finish_time}
+            />
+          );
+        })}
+      </div>
+    );
+  }
 
   function Switcher() {
     if (date === "month") {
@@ -60,6 +90,7 @@ export default function SelectDate() {
       )
       .then((response) => {
         console.log(response.data);
+        setReservationList(response.data);
       });
   }, [startDate]);
 
@@ -116,7 +147,9 @@ export default function SelectDate() {
               <Switcher />
             </div>
             <div className="SelectBox">
-              <div className="timeDisplay"></div>
+              <div className="timeDisplay">
+                <Resevations />
+              </div>
               <div className="timeSelectButton">
                 <div className="start">
                   <p className="Text">시작</p>
