@@ -181,9 +181,9 @@
 }
 
 .nextButton {
-  height: 13%;
+  height: 14%;
 
-  margin: 15px 15px;
+  margin: 10px 15px 15px 15px;
   border-radius: 10px;
 
   display: flex;
