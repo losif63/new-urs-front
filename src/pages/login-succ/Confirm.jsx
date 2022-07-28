@@ -4,12 +4,23 @@ import { useState } from "react";
 
 import "./Confirm.css";
 import { useSelector } from "react-redux";
+import axios from "axios";
 
 
 export default function Confirm() {
+  const uId = useSelector((state) => {
+    return state.login.u_id;
+  });
+  const lId = useSelector((state) => {
+    return state.reservation.lID;
+  });
+  // username
   const name = useSelector((state) => {
     return state.reservation.name;
   });
+  let start_time = "2022-01-01 00:00:00";
+  let finish_time = "2022-01-01 10:00:00";
+  // activity_name
   const purpose = useSelector((state) => {
     return state.reservation.purpose;
   });
@@ -57,6 +68,19 @@ export default function Confirm() {
           <Link
             to="completeReservation"
             style={{ textDecoration: "none", color: "white" }}
+            onClick={async () => {
+              const response = await axios.post(
+                `${process.env.REACT_APP_SERVER_URL}/reservation/createreservation`,
+                {
+                  u_id: uId,
+                  l_id: lId,
+                  username: name,
+                  start_time: start_time,
+                  finish_time: finish_time,
+                  activity_name: purpose
+                }
+              );
+            }}
           >
             예약 ➤
           </Link>
