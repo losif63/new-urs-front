@@ -22,6 +22,8 @@ export default function SelectDate() {
   const [monthColor, setMonthColor] = useState("#601986");
   const [weekColor, setWeekColor] = useState("#7A7A7A");
   const [dayColor, setDayColor] = useState("#7A7A7A");
+  const [startTime, setStartTime] = useState("");
+  const [endTime, setEndTime] = useState("");
 
   const [startDate, setStartDate] = useState(new Date());
   const dispatch = useDispatch();
@@ -30,13 +32,15 @@ export default function SelectDate() {
     const interval_start = props.interval_start.substring(11, 16);
     const interval_end = props.interval_end.substring(11, 16);
 
-
-    var colors = ['#ffaf36', '#36C3FF', '#9B72B0'];
+    var colors = ["#ffaf36", "#36C3FF", "#9B72B0"];
     var randomColor = colors[Math.floor(Math.random() * colors.length)];
 
     const time = `${interval_start}~${interval_end}`;
     return (
-      <div className="Reservation" style={{backgroundColor: `${randomColor}`}}>
+      <div
+        className="Reservation"
+        style={{ backgroundColor: `${randomColor}` }}
+      >
         <div className="R_Name">{props.name}</div>
         <div className="R_time">{time}</div>
       </div>
@@ -44,8 +48,8 @@ export default function SelectDate() {
   }
 
   function Resevations() {
-    var randomColor = Math.floor(Math.random()*16777215).toString(16);
-    
+    var randomColor = Math.floor(Math.random() * 16777215).toString(16);
+
     return (
       <div className="Reservations">
         {reservationList.map((t) => {
@@ -177,6 +181,9 @@ export default function SelectDate() {
                     id="startingTime"
                     type="text"
                     placeholder="HH:MM:SS"
+                    onChange={(e) => {
+                      setStartTime(e.target.value);
+                    }}
                   />
                 </div>
                 <div className="finish">
@@ -194,13 +201,24 @@ export default function SelectDate() {
                     id="finishingTime"
                     type="text"
                     placeholder="HH:MM:SS"
+                    onChange={(e) => {
+                      setEndTime(e.target.value);
+                    }}
                   />
                 </div>
               </div>
-              <div className="nextButton">
+              <div
+                className="nextButton"
+                style={{
+                  backgroundColor: startTime && endTime ? "#601986" : "#9fa0a0",
+                }}
+              >
                 <Link
                   to="reservationInfo"
-                  style={{ textDecoration: "none", color: "white" }}
+                  style={{
+                    textDecoration: "none",
+                    color: "white",
+                  }}
                   onClick={() => {
                     console.log(
                       `${moment(startDate.toLocaleDateString()).format(
