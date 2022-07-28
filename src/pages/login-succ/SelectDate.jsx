@@ -30,9 +30,13 @@ export default function SelectDate() {
     const interval_start = props.interval_start.substring(11, 16);
     const interval_end = props.interval_end.substring(11, 16);
 
+
+    var colors = ['#ffaf36', '#36C3FF', '#9B72B0'];
+    var randomColor = colors[Math.floor(Math.random() * colors.length)];
+
     const time = `${interval_start}~${interval_end}`;
     return (
-      <div className="Reservation">
+      <div className="Reservation" style={{backgroundColor: `${randomColor}`}}>
         <div className="R_Name">{props.name}</div>
         <div className="R_time">{time}</div>
       </div>
@@ -40,6 +44,8 @@ export default function SelectDate() {
   }
 
   function Resevations() {
+    var randomColor = Math.floor(Math.random()*16777215).toString(16);
+    
     return (
       <div className="Reservations">
         {reservationList.map((t) => {
