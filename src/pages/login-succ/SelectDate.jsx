@@ -3,6 +3,9 @@ import "./SelectDate.css";
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
+import moment from "moment";
 
 export default function SelectDate() {
   const [date, setDate] = useState("month");
@@ -10,9 +13,24 @@ export default function SelectDate() {
   const [weekColor, setWeekColor] = useState("#7A7A7A");
   const [dayColor, setDayColor] = useState("#7A7A7A");
 
+  const [startDate, setStartDate] = useState(new Date());
+
   function Switcher() {
     if (date === "month") {
-      return <div>month</div>;
+      return (
+        <div className="calendarHolder">
+          <Calendar
+            className="calendar"
+            formatDay={(locale, date) => Number(moment(date).format("DD"))}
+            minDetail="month"
+            maxDetail="month"
+            // navigationLabel={null}
+            showNeighboringMonth={false} //  이전, 이후 달의 날짜는 보이지 않도록 설정
+            onChange={setStartDate}
+            value={startDate}
+          />
+        </div>
+      );
     } else if (date === "week") {
       return <div>week</div>;
     } else if (date === "day") {

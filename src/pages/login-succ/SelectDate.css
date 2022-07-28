@@ -188,3 +188,29 @@
   color: white;
   background-color: #9fa0a0;
 }
+
+.calendarHolder {
+  background-color: red;
+
+  width: 100%;
+}
+
+.react-calendar {
+  width: 100%;
+  /* max-width: 100%; */
+  background-color: #fff;
+  color: #222;
+  border-radius: 8px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  font-family: "ROKAFSansMedium";
+
+  line-height: 1.125em;
+}
+
+.react-calendar__navigation button {
+  color: #6f48eb;
+  min-width: 44px;
+  background: none;
+  font-size: 16px;
+  margin-top: 8px;
+}
