@@ -167,20 +167,34 @@ export default function SelectDate() {
                   <input
                     className="date"
                     type="text"
-                    value={moment(startDate.toLocaleDateString()).format("YYYY-MM-DD")}
+                    value={moment(startDate.toLocaleDateString()).format(
+                      "YYYY-MM-DD"
+                    )}
                     readOnly
                   />
-                  <input className="time" id="startingTime"  type="text" placeholder="HH:MM:SS"/>
+                  <input
+                    className="time"
+                    id="startingTime"
+                    type="text"
+                    placeholder="HH:MM:SS"
+                  />
                 </div>
                 <div className="finish">
                   <p className="Text">종료</p>
                   <input
                     className="date"
                     type="text"
-                    value={moment(startDate.toLocaleDateString()).format("YYYY-MM-DD")}
+                    value={moment(startDate.toLocaleDateString()).format(
+                      "YYYY-MM-DD"
+                    )}
                     readOnly
                   />
-                  <input className="time" id="finishingTime" type="text" placeholder="HH:MM:SS"/>
+                  <input
+                    className="time"
+                    id="finishingTime"
+                    type="text"
+                    placeholder="HH:MM:SS"
+                  />
                 </div>
               </div>
               <div className="nextButton">
@@ -188,10 +202,30 @@ export default function SelectDate() {
                   to="reservationInfo"
                   style={{ textDecoration: "none", color: "white" }}
                   onClick={() => {
-                    console.log(`${moment(startDate.toLocaleDateString()).format("YYYY-MM-DD")} ${document.getElementById("startingTime").value}`);
-                    console.log(`${moment(startDate.toLocaleDateString()).format("YYYY-MM-DD")} ${document.getElementById("finishingTime").value}`);
-                    dispatch(reservationSlice.actions.writeStartTime(`${moment(startDate.toLocaleDateString()).format("YYYY-MM-DD")} ${document.getElementById("startingTime").value}`));
-                    dispatch(reservationSlice.actions.writeFinishTime(`${moment(startDate.toLocaleDateString()).format("YYYY-MM-DD")} ${document.getElementById("finishingTime").value}`));
+                    console.log(
+                      `${moment(startDate.toLocaleDateString()).format(
+                        "YYYY-MM-DD"
+                      )} ${document.getElementById("startingTime").value}`
+                    );
+                    console.log(
+                      `${moment(startDate.toLocaleDateString()).format(
+                        "YYYY-MM-DD"
+                      )} ${document.getElementById("finishingTime").value}`
+                    );
+                    dispatch(
+                      reservationSlice.actions.writeStartTime(
+                        `${moment(startDate.toLocaleDateString()).format(
+                          "YYYY-MM-DD"
+                        )} ${document.getElementById("startingTime").value}`
+                      )
+                    );
+                    dispatch(
+                      reservationSlice.actions.writeFinishTime(
+                        `${moment(startDate.toLocaleDateString()).format(
+                          "YYYY-MM-DD"
+                        )} ${document.getElementById("finishingTime").value}`
+                      )
+                    );
                   }}
                 >
                   다음 ➤
