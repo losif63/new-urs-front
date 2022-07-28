@@ -1,12 +1,15 @@
 import React from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-
+import reservationSlice from "../../../reservationSlice";
 import "./MapView.css";
 
 export default function MapView() {
   const [textColor1, setTextColor1] = useState("#601986");
   const [textColor2, setTextColor2] = useState("#7A7A7A");
+
+  const dispatch = useDispatch();
 
   function Switcher() {
     if (textColor1 === "#601986") {
@@ -17,6 +20,11 @@ export default function MapView() {
               <Link
                 to="selectDate"
                 style={{ textDecoration: "none", color: "#9b72b0" }}
+                onClick={()=>{
+                  dispatch(reservationSlice.actions.writelID(287));
+                  dispatch(reservationSlice.actions.writeRoomName('그룹스터디룸 1'));
+                  dispatch(reservationSlice.actions.writeBuildingName('교양분관'));
+                }}
               >
                 그룹스터디룸 1
               </Link>
@@ -25,6 +33,11 @@ export default function MapView() {
               <Link
                 to="selectDate"
                 style={{ textDecoration: "none", color: "#9b72b0" }}
+                onClick={()=>{
+                  dispatch(reservationSlice.actions.writelID(288));
+                  dispatch(reservationSlice.actions.writeRoomName('그룹스터디룸 2'));
+                  dispatch(reservationSlice.actions.writeBuildingName('교양분관'));
+                }}
               >
                 그룹스터디룸 2
               </Link>
@@ -33,6 +46,11 @@ export default function MapView() {
               <Link
                 to="selectDate"
                 style={{ textDecoration: "none", color: "#9b72b0" }}
+                onClick={()=>{
+                  dispatch(reservationSlice.actions.writelID(289));
+                  dispatch(reservationSlice.actions.writeRoomName('그룹스터디룸 3'));
+                  dispatch(reservationSlice.actions.writeBuildingName('교양분관'));
+                }}
               >
                 그룹스터디룸 3
               </Link>
@@ -41,6 +59,11 @@ export default function MapView() {
               <Link
                 to="selectDate"
                 style={{ textDecoration: "none", color: "#9b72b0" }}
+                onClick={()=>{
+                  dispatch(reservationSlice.actions.writelID(290));
+                  dispatch(reservationSlice.actions.writeRoomName('그룹스터디룸 4'));
+                  dispatch(reservationSlice.actions.writeBuildingName('교양분관'));
+                }}
               >
                 그룹스터디룸 4
               </Link>
@@ -49,6 +72,11 @@ export default function MapView() {
               <Link
                 to="selectDate"
                 style={{ textDecoration: "none", color: "#9b72b0" }}
+                onClick={()=>{
+                  dispatch(reservationSlice.actions.writelID(291));
+                  dispatch(reservationSlice.actions.writeRoomName('그룹스터디룸 5'));
+                  dispatch(reservationSlice.actions.writeBuildingName('교양분관'));
+                }}
               >
                 그룹스터디룸 5
               </Link>
@@ -57,6 +85,11 @@ export default function MapView() {
               <Link
                 to="selectDate"
                 style={{ textDecoration: "none", color: "#9b72b0" }}
+                onClick={()=>{
+                  dispatch(reservationSlice.actions.writelID(292));
+                  dispatch(reservationSlice.actions.writeRoomName('그룹스터디룸 6'));
+                  dispatch(reservationSlice.actions.writeBuildingName('교양분관'));
+                }}
               >
                 그룹스터디룸 6
               </Link>
@@ -65,6 +98,11 @@ export default function MapView() {
               <Link
                 to="selectDate"
                 style={{ textDecoration: "none", color: "#9b72b0" }}
+                onClick={()=>{
+                  dispatch(reservationSlice.actions.writelID(293));
+                  dispatch(reservationSlice.actions.writeRoomName('그룹스터디룸 7'));
+                  dispatch(reservationSlice.actions.writeBuildingName('교양분관'));
+                }}
               >
                 그룹스터디룸 7
               </Link>
@@ -73,6 +111,11 @@ export default function MapView() {
               <Link
                 to="selectDate"
                 style={{ textDecoration: "none", color: "#9b72b0" }}
+                onClick={()=>{
+                  dispatch(reservationSlice.actions.writelID(294));
+                  dispatch(reservationSlice.actions.writeRoomName('그룹스터디룸 8'));
+                  dispatch(reservationSlice.actions.writeBuildingName('교양분관'));
+                }}
               >
                 그룹스터디룸 8
               </Link>
@@ -84,6 +127,11 @@ export default function MapView() {
               <Link
                 to="selectDate"
                 style={{ textDecoration: "none", color: "#9b72b0" }}
+                onClick={()=>{
+                  dispatch(reservationSlice.actions.writelID(283));
+                  dispatch(reservationSlice.actions.writeRoomName('그룹스터디룸 A'));
+                  dispatch(reservationSlice.actions.writeBuildingName('교양분관'));
+                }}
               >
                 그룹스터디룸 A
               </Link>
@@ -92,6 +140,11 @@ export default function MapView() {
               <Link
                 to="selectDate"
                 style={{ textDecoration: "none", color: "#9b72b0" }}
+                onClick={()=>{
+                  dispatch(reservationSlice.actions.writelID(284));
+                  dispatch(reservationSlice.actions.writeRoomName('그룹스터디룸 B'));
+                  dispatch(reservationSlice.actions.writeBuildingName('교양분관'));
+                }}
               >
                 그룹스터디룸 B
               </Link>
@@ -100,6 +153,11 @@ export default function MapView() {
               <Link
                 to="selectDate"
                 style={{ textDecoration: "none", color: "#9b72b0" }}
+                onClick={()=>{
+                  dispatch(reservationSlice.actions.writelID(285));
+                  dispatch(reservationSlice.actions.writeRoomName('그룹스터디룸 C'));
+                  dispatch(reservationSlice.actions.writeBuildingName('교양분관'));
+                }}
               >
                 그룹스터디룸 C
               </Link>
@@ -108,6 +166,11 @@ export default function MapView() {
               <Link
                 to="selectDate"
                 style={{ textDecoration: "none", color: "#9b72b0" }}
+                onClick={()=>{
+                  dispatch(reservationSlice.actions.writelID(286));
+                  dispatch(reservationSlice.actions.writeRoomName('그룹스터디룸 D'));
+                  dispatch(reservationSlice.actions.writeBuildingName('교양분관'));
+                }}
               >
                 그룹스터디룸 D
               </Link>

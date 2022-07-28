@@ -19,7 +19,7 @@ function ReservationInstance(props) {
     );
     props.setReservations(
       props.reservations.filter((value, index, arr) => {
-        return value.r_id != props.r_id;
+        return value.r_id !== props.r_id;
       })
     );
   };
