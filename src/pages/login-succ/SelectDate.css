@@ -339,7 +339,7 @@
 .react-calendar--selectRange .react-calendar__tile--hover {
   background-color: #e6e6e6;
 }
-
+/* 
 .react-calendar__tile--range {
   background: #f8f8fa;
   color: #6f48eb;
@@ -362,4 +362,4 @@
 
   background: red;
   color: white;
-}
+} */
