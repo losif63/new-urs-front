@@ -8,10 +8,16 @@ import { useSelector } from "react-redux";
 
 export default function Confirm() {
   const name = useSelector((state) => {
-    return state.login.name;
+    return state.reservation.name;
   });
   const purpose = useSelector((state) => {
     return state.reservation.purpose;
+  });
+  const roomName = useSelector((state) => {
+    return state.reservation.roomName;
+  });
+  const buildingName = useSelector((state) => {
+    return state.reservation.buildingName;
   });
 
   return (
@@ -20,14 +26,14 @@ export default function Confirm() {
         <div className="textMessage">이렇게 예약하시겠어요?</div>
         <div className="confirmHolder">
           <div className="confirmHeader">
-            <div className="locationInfo1">그룹스터디룸 1</div>
-            <div className="locationInfo2">교양분관</div>
+            <div className="locationInfo1">{roomName}</div>
+            <div className="locationInfo2">{buildingName}</div>
           </div>
           <div className="locationDisplay">
             <div className="textDisplay">장소</div>
             <div className="infoDisplayWithMap">
-              <div className="line">그룹스터디룸1</div>
-              <div className="line">교양분관1F</div>
+              <div className="line">{roomName}</div>
+              <div className="line">{buildingName}</div>
             </div>
             <div className="watchForMap">지도로 보기</div>
           </div>

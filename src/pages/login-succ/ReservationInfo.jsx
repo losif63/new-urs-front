@@ -94,7 +94,7 @@ export default function ReservationInfo() {
                 to="confirm"
                 style={{ textDecoration: "none", color: "white" }}
                 onClick={() => {
-                  dispatch(loginSlice.actions.writeName(name));
+                  dispatch(reservationSlice.actions.writeName(name));
                   dispatch(reservationSlice.actions.writePurpose(purpose));
                 }}
               >
