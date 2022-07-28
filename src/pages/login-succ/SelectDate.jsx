@@ -2,9 +2,13 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import Calendar from "react-calendar";
 import moment from "moment";
 import axios from "axios";
+
+import loginSlice from "../../loginSlice";
+import reservationSlice from "../../reservationSlice";
 
 import "./SelectDate.css";
 import Reservation from "./Reservation";
@@ -20,6 +24,7 @@ export default function SelectDate() {
   const [dayColor, setDayColor] = useState("#7A7A7A");
 
   const [startDate, setStartDate] = useState(new Date());
+  const dispatch = useDispatch();
 
   function Resevation(props) {
     const interval_start = props.interval_start.substring(11, 16);
@@ -156,26 +161,32 @@ export default function SelectDate() {
                   <input
                     className="date"
                     type="text"
-                    value={startDate.toLocaleDateString().replaceAll("/", "-")}
+                    value={moment(startDate.toLocaleDateString()).format("YYYY-MM-DD")}
                     readOnly
                   />
-                  <input className="time" type="text" />
+                  <input className="time" id="startingTime"  type="text" placeholder="HH:MM:SS"/>
                 </div>
                 <div className="finish">
                   <p className="Text">종료</p>
                   <input
                     className="date"
                     type="text"
-                    value={startDate.toLocaleDateString().replaceAll("/", "-")}
+                    value={moment(startDate.toLocaleDateString()).format("YYYY-MM-DD")}
                     readOnly
                   />
-                  <input className="time" type="text" />
+                  <input className="time" id="finishingTime" type="text" placeholder="HH:MM:SS"/>
                 </div>
               </div>
               <div className="nextButton">
                 <Link
                   to="reservationInfo"
                   style={{ textDecoration: "none", color: "white" }}
+                  onClick={() => {
+                    console.log(`${moment(startDate.toLocaleDateString()).format("YYYY-MM-DD")} ${document.getElementById("startingTime").value}`);
+                    console.log(`${moment(startDate.toLocaleDateString()).format("YYYY-MM-DD")} ${document.getElementById("finishingTime").value}`);
+                    dispatch(reservationSlice.actions.writeStartTime(`${moment(startDate.toLocaleDateString()).format("YYYY-MM-DD")} ${document.getElementById("startingTime").value}`));
+                    dispatch(reservationSlice.actions.writeFinishTime(`${moment(startDate.toLocaleDateString()).format("YYYY-MM-DD")} ${document.getElementById("finishingTime").value}`));
+                  }}
                 >
                   다음 ➤
                 </Link>

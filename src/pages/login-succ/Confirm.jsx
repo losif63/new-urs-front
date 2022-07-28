@@ -18,8 +18,12 @@ export default function Confirm() {
   const name = useSelector((state) => {
     return state.reservation.name;
   });
-  let start_time = "2022-01-01 00:00:00";
-  let finish_time = "2022-01-01 10:00:00";
+  const start_time = useSelector((state) => {
+    return state.reservation.startTime;
+  });
+  const finish_time = useSelector((state) => {
+    return state.reservation.finishTime;
+  });
   // activity_name
   const purpose = useSelector((state) => {
     return state.reservation.purpose;
@@ -51,8 +55,8 @@ export default function Confirm() {
           <div className="dateDisplay">
             <div className="textDisplay">일시</div>
             <div className="infoDisplay">
-              <div className="line">2022년 5월 23일</div>
-              <div className="line">14:30~16:00</div>
+              <div className="line">{start_time.substring(0, 10)}</div>
+              <div className="line">{`${start_time.substring(11, 19)} ~ ${finish_time.substring(11, 19)}`}</div>
             </div>
           </div>
           <div className="nameDisplay">
