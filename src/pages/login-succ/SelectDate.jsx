@@ -1,11 +1,11 @@
 import React from "react";
-import "./SelectDate.css";
 
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Calendar from "react-calendar";
-import "react-calendar/dist/Calendar.css";
 import moment from "moment";
+
+import "./SelectDate.css";
 
 export default function SelectDate() {
   const [date, setDate] = useState("month");
@@ -24,7 +24,7 @@ export default function SelectDate() {
             formatDay={(locale, date) => Number(moment(date).format("DD"))}
             minDetail="month"
             maxDetail="month"
-            // navigationLabel={null}
+            selectRange="true"
             showNeighboringMonth={false} //  이전, 이후 달의 날짜는 보이지 않도록 설정
             onChange={setStartDate}
             value={startDate}
@@ -87,10 +87,11 @@ export default function SelectDate() {
             </div>
           </div>
           <div className="roomInfo">
-            <div className="Calendar">
+            <div className="switchDisplayView">
               <Switcher />
             </div>
             <div className="SelectBox">
+              <div className="timeDisplay"></div>
               <div className="timeSelectButton">
                 <div className="start">
                   <p className="Text">시작</p>
